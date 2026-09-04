@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Abhaya_Libre } from "next/font/google";
 import "./globals.css";
-
+import { Italianno } from "next/font/google";
+import Header from "./Component/common/Header";
+import Footer from "./Component/common/Footer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -9,6 +12,17 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const abhayaLibre = Abhaya_Libre({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-abhaya",
+});
+
+const italianno = Italianno({
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -21,9 +35,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${abhayaLibre.variable} ${italianno.className} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
