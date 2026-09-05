@@ -9,7 +9,7 @@ import { RiArrowDropDownLine, RiMenuLine, RiCloseLine } from "react-icons/ri";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const [currentpage, setcurrentpage] = useState();
   return (
     <header className="relative sticky top-0 z-50 w-full rounded-br-[8px] rounded-bl-[8px] bg-white shadow-[0_-4px_4px_0_#00000040]">
       {/* ================= HEADER CONTAINER ================= */}
@@ -31,18 +31,26 @@ export default function Header() {
         {/* ================= DESKTOP NAV ================= */}
 
         <nav className="hidden flex-1 justify-center lg:flex">
-          <ul className="flex items-center justify-center gap-[12px] whitespace-nowrap xl:gap-[17px]">
+          <ul
+            className={`flex items-center justify-center gap-[12px] whitespace-nowrap xl:gap-[17px]`}
+          >
             {/* HOME */}
 
             <Link href="/">
-              <li className="font-abhaya cursor-pointer text-[18px] text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:text-[20px] xl:underline-offset-10">
+              <li
+                onClick={() => setcurrentpage("Home")}
+                className={`${currentpage == "Home" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya cursor-pointer text-[18px] xl:text-[20px]`}
+              >
                 Home
               </li>
             </Link>
 
             {/* OUR OFFERING */}
 
-            <li className="font-abhaya flex cursor-pointer items-center gap-0.5 text-[18px] whitespace-nowrap text-[#2E2E2C] xl:gap-1 xl:text-[20px]">
+            <li
+              onClick={() => setcurrentpage("OurOffering")}
+              className={`${currentpage == "OurOffering" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya flex cursor-pointer items-center gap-0.5 text-[18px] whitespace-nowrap text-[#2E2E2C] xl:gap-1 xl:text-[20px]`}
+            >
               Our Offering
               <RiArrowDropDownLine className="shrink-0 text-[#B07636]" size={22} />
             </li>
@@ -62,7 +70,10 @@ export default function Header() {
             {/* ABOUT */}
 
             <Link href="/About-us">
-              <li className="font-abhaya cursor-pointer text-[18px] whitespace-nowrap text-[#2E2E2C] xl:text-[20px]">
+              <li
+                onClick={() => setcurrentpage("Aboutus")}
+                className={`${currentpage == "Aboutus" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya cursor-pointer text-[18px] whitespace-nowrap text-[#2E2E2C] xl:text-[20px]`}
+              >
                 About Us
               </li>
             </Link>

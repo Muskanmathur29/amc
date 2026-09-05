@@ -12,6 +12,8 @@ export default function Banner7() {
             heading1color="text-[#B07636]"
             headeing2color="text-[#FFFFFF]"
             heading3color="text-[#C6C8B8]"
+            maxwidthmain="max-w-[780px]"
+            maxwidth3main="max-w-[720px]"
           />
           <div className="flex min-h-[80px] w-full max-w-[579px] flex-col gap-3.5 pt-7 sm:pt-7 md:pt-7 lg:flex-row lg:pt-7">
             <button className="font-abhaya flex min-h-[48px] w-full items-center justify-center gap-2.5 rounded-sm bg-[#B07636] px-5 py-2.5 sm:min-h-[50px] sm:px-6 md:min-h-[52px] md:px-7 lg:min-h-[52px] lg:max-w-[243px] lg:px-7">

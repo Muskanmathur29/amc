@@ -5,6 +5,7 @@ import "./globals.css";
 import { Italianno } from "next/font/google";
 import Header from "./Component/common/Header";
 import Footer from "./Component/common/Footer";
+import Footer3 from "./Component/common/Footer3";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -40,7 +41,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col">
         <Header />
         {children}
-        <Footer />
+        {/* <Footer /> */}
+        <Footer3 />
       </body>
     </html>
   );

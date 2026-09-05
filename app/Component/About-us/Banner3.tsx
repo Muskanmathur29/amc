@@ -84,8 +84,11 @@ export default function Banner3() {
                       className="relative flex w-full flex-col lg:w-1/7 lg:flex-1 lg:pt-[64px] lg:pr-[8px]"
                     >
                       {/* Dot */}
-                      <div className="absolute top-[55px] left-0 hidden h-[17px] w-[17px] rounded-full border-[3px] border-[#B07636] bg-white lg:block"></div>
-
+                      {index < data.length - 1 ? (
+                        <div className="absolute top-[55px] left-0 hidden h-[17px] w-[17px] rounded-full border-[3px] border-[#B07636] bg-white lg:block"></div>
+                      ) : (
+                        <div className="absolute top-[55px] left-0 hidden h-[17px] w-[17px] rounded-full border-[3px] border-[#B07636] bg-[#B07636] lg:block"></div>
+                      )}
                       {/* Mobile/tablet line */}
                       <div className="relative mb-4 border-t border-dashed border-[#B07636] lg:hidden">
                         <div className="absolute -top-[10px] left-0 h-[17px] w-[17px] rounded-full border-[3px] border-[#B07636] bg-white"></div>

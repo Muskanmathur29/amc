@@ -31,7 +31,8 @@ export default function Banner6() {
             eyebrow="The Fiduciary Framework"
             title="Uncompromising Risk Governance"
             description="HNIs don't just look for returns — they look for return stability. Capital moves through three deliberate gates before it becomes part of any portfolio."
-            titleSize="text-[16PX]"
+            titleSize="text-[16px]"
+            heding3fontweight="font-[700]"
           />
 
           <div className="mx-auto mt-[25px] flex w-full max-w-[1116px] flex-col items-center justify-center pt-8 sm:pt-10 md:pt-12 lg:mt-[0px] lg:flex-row">

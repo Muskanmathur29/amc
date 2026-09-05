@@ -7,6 +7,9 @@ type AboutusHeaderProps = {
   heading1color?: string;
   headeing2color?: string;
   heading3color?: string;
+  heding3fontweight?: string;
+  maxwidthmain?: string;
+  maxwidth3main?: string;
 };
 
 export default function AboutusHeader({
@@ -17,27 +20,32 @@ export default function AboutusHeader({
   heading1color = "text-[#B07636]",
   headeing2color = "text-[#576534]",
   heading3color = "text-[#46483D]",
+  heding3fontweight = "font-[400]",
+  maxwidthmain = "max-w-[660px]",
+  maxwidth3main = "max-w-[660px]",
 }: AboutusHeaderProps) {
   return (
     <div>
-      <div className="mx-auto min-h-[128px] max-w-[660px] text-center">
+      <div className={`mx-auto min-h-[128px] ${maxwidthmain} text-center`}>
         <span
           className={`font-inter block h-[15px] w-full text-center text-[12px] leading-[100%] font-semibold tracking-[1.92px] ${heading1color} uppercase`}
         >
           {eyebrow}
         </span>
-
+        {/* min-h-[40px] w-full pt-2.5 lg:min-h-[48px] */}
         <div className="min-h-[48px] w-full pt-[10px]">
+          {/* className= */}
+          {/* {`${headeing2color} font-abhaya h-auto w-full max-w-[660px] text-center text-[24px] leading-[30px] font-semibold text-[#576534] sm:text-[26px] sm:leading-[32px] md:text-[28px] md:leading-[34px] lg:text-[32px] lg:leading-[38px]`} */}
           <h2
-            className={`font-abhaya text-center text-[24px] leading-[29px] font-semibold text-[#576534] sm:text-[26px] sm:leading-[31px] md:text-[28px] md:leading-[34px] ${headeing2color} lg:text-[32px] lg:leading-[38px]`}
+            className={`font-abhaya h-auto w-full text-center text-[24px] leading-[30px] font-semibold text-[#576534] sm:text-[26px] sm:leading-[31px] md:text-[28px] md:leading-[34px] ${headeing2color} lg:text-[32px] lg:leading-[38px]`}
           >
             {title}
           </h2>
         </div>
 
-        <div className="mn-h-[65px] w-full pt-[14px]">
+        <div className={`min-h-[65px] w-full ${maxwidth3main} pt-[12px]`}>
           <p
-            className={`font-abhaya min-h-[51px] w-full ${heading3color} px-4 py-3 text-center text-[14px] leading-[23px] font-normal text-[#46483D] sm:leading-[25.5px] md:leading-[25.5px] ${titleSize} lg:leading-[25.5px]`}
+            className={`font-abhaya min-h-[51px] ${maxwidth3main} ${heading3color} ${heding3fontweight} text-center text-[14px] leading-[23px] text-[#46483D] sm:leading-[25.5px] md:leading-[25.5px] ${titleSize} lg:leading-[25.5px]`}
           >
             {description}
           </p>
@@ -48,7 +56,9 @@ export default function AboutusHeader({
     // <div>
     //   <div className="mx-auto min-h-[96px] w-full max-w-[660px] text-center sm:min-h-[105px] md:min-h-[115px] lg:min-h-[128px]">
     //     <p
-    //       className={`font-inter h-[15px] w-full mx-auto max-w-[142px] text-center text-[10px] leading-[100%] font-semibold tracking-[1.5px] text-[#B07636] ${heading1color} uppercase sm:text-[11px] sm:tracking-[1.7px] md:text-[12px] md:tracking-[1.92px]`}
+    //       className={`font-inter h-[15px] w-full mx-auto max-w-[142px] text-center text-[10px]
+    //  leading-[100%] font-semibold tracking-[1.5px] text-[#B07636] ${heading1color}
+    // uppercase sm:text-[11px] sm:tracking-[1.7px] md:text-[12px] md:tracking-[1.92px]`}
     //     >
     //       {eyebrow}
     //     </p>

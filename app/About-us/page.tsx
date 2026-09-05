@@ -16,7 +16,6 @@ export default function page() {
       <Banner5 />
       <Banner6 />
       <Banner7 />
-      <AboutusHEADER2/>
     </div>
   );
 }
