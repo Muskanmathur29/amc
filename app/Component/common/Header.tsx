@@ -9,7 +9,7 @@ import { RiArrowDropDownLine, RiMenuLine, RiCloseLine } from "react-icons/ri";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [currentpage, setcurrentpage] = useState();
+  const [currentpage, setcurrentpage] = useState("Home");
   return (
     <header className="relative sticky top-0 z-50 w-full rounded-br-[8px] rounded-bl-[8px] bg-white shadow-[0_-4px_4px_0_#00000040]">
       {/* ================= HEADER CONTAINER ================= */}
