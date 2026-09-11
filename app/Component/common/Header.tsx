@@ -5,6 +5,7 @@ import { useState } from "react";
 // import logo from "../../assests/logo.svg";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 import { RiArrowDropDownLine, RiMenuLine, RiCloseLine } from "react-icons/ri";
 
@@ -13,15 +14,37 @@ export default function Header() {
   const [currentpage, setcurrentpage] = useState("Home");
   const pathname = usePathname();
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="relative sticky top-0 z-50 w-full rounded-br-[8px] rounded-bl-[8px] bg-white shadow-[0_-4px_4px_0_#00000040]">
+    <header className={`relative sticky top-0 z-50 w-full rounded-br-[8px] rounded-bl-[8px] bg-white shadow-[0_-4px_4px_0_#00000040] transition-all duration-500 ${    scrolled ? "py-2 shadow-md" : "py-4"
+  }`}>
       {/* ================= HEADER CONTAINER ================= */}
 
       <div className="mx-auto flex min-h-[80px] w-full max-w-[1440px] items-center justify-between gap-4 px-5 py-4 sm:px-8 sm:py-4 md:px-10 lg:gap-6 lg:px-[50px] lg:py-5 xl:gap-8 xl:px-[60px] 2xl:px-[50px]">
         {/* ================= LOGO ================= */}
 
-        <div className="relative aspect-[180/50] w-[130px] shrink-0 sm:w-[150px] md:w-[160px] lg:w-[180px]">
-          <Image src="/assests/logo.svg" alt="Logo" fill priority className="object-contain" />
+        <div className="group relative aspect-[180/50] w-[130px] shrink-0 sm:w-[150px] md:w-[160px] lg:w-[180px]">
+          <Image
+            src="/assests/logo.svg"
+            alt="Logo"
+            fill
+            priority
+
+            className="object-contain transition-transform duration-300 group-hover:scale-110"
+          />
         </div>
 
         {/* ================= DESKTOP NAV ================= */}
@@ -34,7 +57,7 @@ export default function Header() {
 
             <Link href="/">
               <li
-                className={`${pathname === "/" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya cursor-pointer text-[18px] xl:text-[20px]`}
+                className={`${pathname === "/" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 transition-transform duration-300 hover:scale-105 xl:underline-offset-10" : "no-underline"} font-abhaya cursor-pointer text-[18px] hover:text-[#B07636] xl:text-[20px]`}
               >
                 Home
               </li>
@@ -43,7 +66,7 @@ export default function Header() {
             {/* OUR OFFERING */}
 
             <li
-              className={`${currentpage == "OurOffering" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya flex cursor-pointer items-center gap-0.5 text-[18px] whitespace-nowrap text-[#2E2E2C] xl:gap-1 xl:text-[20px]`}
+              className={`${currentpage == "OurOffering" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 transition-transform duration-300 hover:scale-105 xl:underline-offset-10" : "no-underline"} font-abhaya flex cursor-pointer items-center gap-0.5 text-[18px] whitespace-nowrap text-[#2E2E2C] hover:text-[#B07636] xl:gap-1 xl:text-[20px]`}
             >
               Our Offering
               <RiArrowDropDownLine className="shrink-0 text-[#B07636]" size={22} />
@@ -53,7 +76,7 @@ export default function Header() {
 
             <Link href="/Media">
               <li
-                className={`${pathname === "/Media" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya cursor-pointer text-[18px] whitespace-nowrap text-[#2E2E2C] xl:text-[20px]`}
+                className={`${pathname === "/Media" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 transition-transform duration-300 hover:scale-105 xl:underline-offset-10" : "no-underline"} font-abhaya cursor-pointer text-[18px] whitespace-nowrap text-[#2E2E2C] hover:text-[#B07636] xl:text-[20px]`}
               >
                 Media
               </li>
@@ -64,7 +87,7 @@ export default function Header() {
             <Link href="/Blog">
               <li
                 // className="font-abhaya cursor-pointer text-[18px] text-[#2E2E2C] xl:text-[20px]"
-                className={`${pathname === "/Blog" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya flex cursor-pointer items-center gap-0.5 text-[18px] whitespace-nowrap text-[#2E2E2C] xl:gap-1 xl:text-[20px]`}
+                className={`${pathname === "/Blog" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 transition-transform duration-300 hover:scale-105 xl:underline-offset-10" : "no-underline"} font-abhaya flex cursor-pointer items-center gap-0.5 text-[18px] whitespace-nowrap text-[#2E2E2C] hover:text-[#B07636] xl:gap-1 xl:text-[20px]`}
               >
                 Blogs
               </li>
@@ -74,7 +97,7 @@ export default function Header() {
 
             <Link href="/About-us">
               <li
-                className={`${pathname === "/About-us" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya cursor-pointer text-[18px] whitespace-nowrap text-[#2E2E2C] xl:text-[20px]`}
+                className={`${pathname === "/About-us" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 transition-transform duration-300 hover:scale-105 xl:underline-offset-10" : "no-underline"} font-abhaya cursor-pointer text-[18px] whitespace-nowrap text-[#2E2E2C] hover:text-[#B07636] xl:text-[20px]`}
               >
                 About Us
               </li>
@@ -82,7 +105,7 @@ export default function Header() {
 
             {/* CONTACT */}
 
-            <li className="font-abhaya cursor-pointer text-[18px] whitespace-nowrap text-[#2E2E2C] xl:text-[20px]">
+            <li className="font-abhaya cursor-pointer text-[18px] whitespace-nowrap text-[#2E2E2C] hover:text-[#B07636] xl:text-[20px]">
               Contact Us
             </li>
           </ul>
