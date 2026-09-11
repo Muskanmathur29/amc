@@ -36,18 +36,12 @@ export default function Footer3() {
                 </p>
               </div>
               <div className="flex min-h-[40px] w-full max-w-[358px] pt-2 sm:min-h-[42px] sm:pt-2 md:min-h-[45px] md:pt-[8.7px] lg:min-h-[46.7px] lg:flex-row lg:pt-[8.7px]">
-
-
                 {Images.map((element, index) => (
                   <div
-    key={index}
-    className="flex min-h-[32px] w-full max-w-[54px] flex-col pl-3 sm:min-h-[34px] sm:pl-3.5 md:min-h-[36px] md:pl-4 lg:min-h-[38px] lg:flex-row lg:pl-4"
-  >
-    <div
-      className="flex h-[32px] w-[32px] items-center justify-center rounded-full border border-[#FCF3E4] p-2 sm:h-[34px] sm:w-[34px] md:h-[36px] md:w-[36px] lg:h-[38px] lg:w-[38px]"
-    >
-
-
+                    key={index}
+                    className="flex min-h-[32px] w-full max-w-[54px] flex-col pl-3 sm:min-h-[34px] sm:pl-3.5 md:min-h-[36px] md:pl-4 lg:min-h-[38px] lg:flex-row lg:pl-4"
+                  >
+                    <div className="flex h-[32px] w-[32px] items-center justify-center rounded-full border border-[#FCF3E4] p-2 sm:h-[34px] sm:w-[34px] md:h-[36px] md:w-[36px] lg:h-[38px] lg:w-[38px]">
                       <Image
                         src={element.image}
                         alt="Logo"
@@ -202,22 +196,17 @@ export default function Footer3() {
                   </div>
                 </div>
 
-
                 <div className="flex h-6 w-full items-center gap-3 gap-4 sm:h-[25px] sm:gap-4 md:h-[26px] md:w-[330px] lg:h-7 lg:w-[357.38px]">
-
-
-
                   <div className="flex h-6 w-6 items-center justify-center ps-0 lg:ps-2">
                     <Image
-    src="/assests/phone footer.svg"
-    alt="Phone"
-    width={24}
-    height={24}
-    className="object-contain"
-    style={{ width: "24px", height: "auto" }}
-  />
-</div>
-
+                      src="/assests/phone footer.svg"
+                      alt="Phone"
+                      width={24}
+                      height={24}
+                      className="object-contain"
+                      style={{ width: "24px", height: "auto" }}
+                    />
+                  </div>
 
                   <div className="h-6 w-[194px] sm:h-[25px] sm:w-[180px] md:h-[26px] md:w-[188px] lg:h-7 lg:w-[194px]">
                     <p className="font-['Abhaya_Libre'] text-[14px] leading-[24px] font-normal text-white sm:text-[15px] sm:leading-[25px] md:text-[16px] md:leading-[26px] lg:text-[18px] lg:leading-7">
@@ -230,7 +219,6 @@ export default function Footer3() {
           </div>
           {/* end here   */}
 
-
           <div className="w-full max-w-[1240px] border-t border-t-[#FFFFFF33] pt-8 pb-12 sm:pt-9 sm:pb-14 md:pt-10 md:pb-16 lg:pt-12 lg:pb-20">
             {/* Heading */}
             <div className="w-full">
@@ -240,7 +228,6 @@ export default function Footer3() {
             </div>
 
             <div className="mt-2 h-[2px] w-6 bg-[#FCF3E4] sm:w-[26px] md:w-7 lg:w-8" />
-
 
             {showdisclamair ? (
               <>
@@ -322,7 +309,7 @@ export default function Footer3() {
                       className="flex h-[42px] w-[180px] items-center justify-center gap-2 rounded-sm border border-[#FCF3E4] px-5 sm:w-[190px] md:w-[200px] lg:w-[212px]"
                     >
                       <span className="font-['Abhaya_Libre'] text-[14px] leading-6 font-semibold text-[#FCF3E4] sm:text-[14px] md:text-[15px] lg:text-[16px]">
-                        Read Full Disclaimer
+                        Close
                       </span>
 
                       <span className="flex h-4 w-4 shrink-0 items-center justify-center text-white">
@@ -346,14 +333,13 @@ export default function Footer3() {
                   </p>
                 </div>
 
-
                 <button
                   type="button"
                   onClick={() => setshowdisclamair(!showdisclamair)}
                   className="flex h-[42px] w-[180px] items-center justify-center gap-2 rounded-sm border border-[#FCF3E4] px-5 sm:w-[190px] md:w-[200px] lg:w-[212px]"
                 >
                   <span className="font-['Abhaya_Libre'] text-[14px] leading-6 font-semibold text-[#FCF3E4] sm:text-[14px] md:text-[15px] lg:text-[16px]">
-                    Close
+                    Read Full Disclaimer
                   </span>
 
                   <span className="flex h-4 w-4 shrink-0 items-center justify-center text-white">
@@ -364,8 +350,6 @@ export default function Footer3() {
             )}
           </div>
 
-
-
           <div className="mx-auto flex w-full max-w-[1240px] flex-col border-t border-white/20 pt-5 sm:pt-6 lg:flex-row lg:items-start lg:justify-between lg:gap-6">
             <div className="w-full shrink-0 lg:w-[350px]">
               <p className="font-[Abhaya_Libre] text-[16px] leading-5 font-normal text-white">
@@ -374,7 +358,6 @@ export default function Footer3() {
                 All Rights Reserved.
               </p>
             </div>
-
 
             <div className="mt-4 flex min-w-0 flex-1 flex-wrap items-center justify-start gap-x-4 gap-y-2 lg:mt-0 lg:justify-end lg:gap-x-5">
               <p className="font-[Abhaya_Libre] text-[16px] leading-5 font-semibold whitespace-nowrap text-white">
@@ -406,8 +389,6 @@ export default function Footer3() {
               </p>
             </div>
           </div>
-
-
         </div>
       </section>
     </div>

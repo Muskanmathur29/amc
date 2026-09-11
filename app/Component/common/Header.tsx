@@ -4,12 +4,15 @@ import Image from "next/image";
 import { useState } from "react";
 // import logo from "../../assests/logo.svg";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { RiArrowDropDownLine, RiMenuLine, RiCloseLine } from "react-icons/ri";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [currentpage, setcurrentpage] = useState("Home");
+  const pathname = usePathname();
+
   return (
     <header className="relative sticky top-0 z-50 w-full rounded-br-[8px] rounded-bl-[8px] bg-white shadow-[0_-4px_4px_0_#00000040]">
       {/* ================= HEADER CONTAINER ================= */}
@@ -18,14 +21,8 @@ export default function Header() {
         {/* ================= LOGO ================= */}
 
         <div className="relative aspect-[180/50] w-[130px] shrink-0 sm:w-[150px] md:w-[160px] lg:w-[180px]">
-        <Image
-        src="/assests/logo.svg"
-        alt="Logo"
-        fill
-        priority
-        className="object-contain"
-  />
-</div>
+          <Image src="/assests/logo.svg" alt="Logo" fill priority className="object-contain" />
+        </div>
 
         {/* ================= DESKTOP NAV ================= */}
 
@@ -37,8 +34,7 @@ export default function Header() {
 
             <Link href="/">
               <li
-                onClick={() => setcurrentpage("Home")}
-                className={`${currentpage == "Home" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya cursor-pointer text-[18px] xl:text-[20px]`}
+                className={`${pathname === "/" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya cursor-pointer text-[18px] xl:text-[20px]`}
               >
                 Home
               </li>
@@ -47,7 +43,6 @@ export default function Header() {
             {/* OUR OFFERING */}
 
             <li
-              onClick={() => setcurrentpage("OurOffering")}
               className={`${currentpage == "OurOffering" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya flex cursor-pointer items-center gap-0.5 text-[18px] whitespace-nowrap text-[#2E2E2C] xl:gap-1 xl:text-[20px]`}
             >
               Our Offering
@@ -57,19 +52,19 @@ export default function Header() {
             {/* MEDIA */}
 
             <Link href="/Media">
-            <li onClick={() => setcurrentpage("Media")}
-              className={`${currentpage == "Media" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya cursor-pointer text-[18px] whitespace-nowrap text-[#2E2E2C] xl:text-[20px]`}
+              <li
+                className={`${pathname === "/Media" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya cursor-pointer text-[18px] whitespace-nowrap text-[#2E2E2C] xl:text-[20px]`}
               >
-              Media
-            </li></Link>
+                Media
+              </li>
+            </Link>
 
             {/* BLOGS */}
 
             <Link href="/Blog">
               <li
-                onClick={() => setcurrentpage("Blog")}
                 // className="font-abhaya cursor-pointer text-[18px] text-[#2E2E2C] xl:text-[20px]"
-                className={`${currentpage == "Blog" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya flex cursor-pointer items-center gap-0.5 text-[18px] whitespace-nowrap text-[#2E2E2C] xl:gap-1 xl:text-[20px]`}
+                className={`${pathname === "/Blog" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya flex cursor-pointer items-center gap-0.5 text-[18px] whitespace-nowrap text-[#2E2E2C] xl:gap-1 xl:text-[20px]`}
               >
                 Blogs
               </li>
@@ -79,8 +74,7 @@ export default function Header() {
 
             <Link href="/About-us">
               <li
-                onClick={() => setcurrentpage("Aboutus")}
-                className={`${currentpage == "Aboutus" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya cursor-pointer text-[18px] whitespace-nowrap text-[#2E2E2C] xl:text-[20px]`}
+                className={`${pathname === "/About-us" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya cursor-pointer text-[18px] whitespace-nowrap text-[#2E2E2C] xl:text-[20px]`}
               >
                 About Us
               </li>
@@ -137,9 +131,14 @@ export default function Header() {
             <ul className="flex flex-col gap-5 sm:gap-6">
               {/* HOME */}
 
-              <li className="font-abhaya w-fit cursor-pointer text-[20px] text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 sm:text-[21px] md:text-[22px]">
-                Home
-              </li>
+              <Link href="/">
+                <li
+                  onClick={() => setMenuOpen(!menuOpen)}
+                  className={`${pathname === "/" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya w-fit cursor-pointer text-[20px] decoration-2 underline-offset-8 sm:text-[21px] md:text-[22px]`}
+                >
+                  Home
+                </li>
+              </Link>
 
               {/* OUR OFFERING */}
 
@@ -149,26 +148,41 @@ export default function Header() {
               </li>
 
               {/* MEDIA */}
-
-              <li className="font-abhaya cursor-pointer text-[20px] text-[#2E2E2C] sm:text-[21px] md:text-[22px]">
-                Media
-              </li>
+              <Link href="/Media">
+                <li
+                  onClick={() => setMenuOpen(!menuOpen)}
+                  className={`${pathname === "/Media" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya cursor-pointer text-[20px] text-[#2E2E2C] sm:text-[21px] md:text-[22px]`}
+                >
+                  Media
+                </li>
+              </Link>
 
               {/* BLOGS */}
-
-              <li className="font-abhaya cursor-pointer text-[20px] text-[#2E2E2C] sm:text-[21px] md:text-[22px]">
-                Blogs
-              </li>
+              <Link href="/Blog">
+                <li
+                  onClick={() => setMenuOpen(!menuOpen)}
+                  className={`${pathname === "/Blog" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya cursor-pointer text-[20px] text-[#2E2E2C] sm:text-[21px] md:text-[22px]`}
+                >
+                  Blogs
+                </li>
+              </Link>
 
               {/* ABOUT */}
-
-              <li className="font-abhaya cursor-pointer text-[20px] text-[#2E2E2C] sm:text-[21px] md:text-[22px]">
-                About Us
-              </li>
+              <Link href="/About-us">
+                <li
+                  onClick={() => setMenuOpen(!menuOpen)}
+                  className={`${pathname === "/About-us" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya cursor-pointer text-[20px] text-[#2E2E2C] sm:text-[21px] md:text-[22px]`}
+                >
+                  About Us
+                </li>
+              </Link>
 
               {/* CONTACT */}
 
-              <li className="font-abhaya cursor-pointer text-[20px] text-[#2E2E2C] sm:text-[21px] md:text-[22px]">
+              <li
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="font-abhaya cursor-pointer text-[20px] text-[#2E2E2C] sm:text-[21px] md:text-[22px]"
+              >
                 Contact Us
               </li>
             </ul>
