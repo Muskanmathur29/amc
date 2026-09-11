@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import logo from "../../assests/logo.svg";
+// import logo from "../../assests/logo.svg";
 import Link from "next/link";
 
 import { RiArrowDropDownLine, RiMenuLine, RiCloseLine } from "react-icons/ri";
@@ -17,16 +17,15 @@ export default function Header() {
       <div className="mx-auto flex min-h-[80px] w-full max-w-[1440px] items-center justify-between gap-4 px-5 py-4 sm:px-8 sm:py-4 md:px-10 lg:gap-6 lg:px-[50px] lg:py-5 xl:gap-8 xl:px-[60px] 2xl:px-[50px]">
         {/* ================= LOGO ================= */}
 
-        <div className="w-[130px] shrink-0 sm:w-[150px] md:w-[160px] lg:w-[180px]">
-          <Image
-            src="/assests/logo.svg"
-            alt="Logo"
-            width={180}
-            height={50}
-            priority
-            className="h-auto w-full object-contain"
-          />
-        </div>
+        <div className="relative aspect-[180/50] w-[130px] shrink-0 sm:w-[150px] md:w-[160px] lg:w-[180px]">
+        <Image
+        src="/assests/logo.svg"
+        alt="Logo"
+        fill
+        priority
+        className="object-contain"
+  />
+</div>
 
         {/* ================= DESKTOP NAV ================= */}
 
@@ -57,9 +56,12 @@ export default function Header() {
 
             {/* MEDIA */}
 
-            <li className="font-abhaya cursor-pointer text-[18px] text-[#2E2E2C] xl:text-[20px]">
+            <Link href="/Media">
+            <li onClick={() => setcurrentpage("Media")}
+              className={`${currentpage == "Media" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya cursor-pointer text-[18px] whitespace-nowrap text-[#2E2E2C] xl:text-[20px]`}
+              >
               Media
-            </li>
+            </li></Link>
 
             {/* BLOGS */}
 
