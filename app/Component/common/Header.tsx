@@ -63,9 +63,15 @@ export default function Header() {
 
             {/* BLOGS */}
 
-            <li className="font-abhaya cursor-pointer text-[18px] text-[#2E2E2C] xl:text-[20px]">
-              Blogs
-            </li>
+            <Link href="/Blog">
+              <li
+                onClick={() => setcurrentpage("Blog")}
+                // className="font-abhaya cursor-pointer text-[18px] text-[#2E2E2C] xl:text-[20px]"
+                className={`${currentpage == "Blog" ? "text-[#B07636] underline decoration-[#B07636] decoration-2 underline-offset-8 xl:underline-offset-10" : "no-underline"} font-abhaya flex cursor-pointer items-center gap-0.5 text-[18px] whitespace-nowrap text-[#2E2E2C] xl:gap-1 xl:text-[20px]`}
+              >
+                Blogs
+              </li>
+            </Link>
 
             {/* ABOUT */}
 
